@@ -1,3 +1,3 @@
 export default function MealsShare({params}){
-    return <h1>Meals {params.mealSlug}</h1>
+    return <h1>Meal Details</h1>
 }
