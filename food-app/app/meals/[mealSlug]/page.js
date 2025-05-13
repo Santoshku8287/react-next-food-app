@@ -1,10 +1,15 @@
 import classes from "./page.module.css";
 import Image from "next/image";
 import { getMeal } from "@/lib/meals";
+import { notFound } from "next/navigation";
 
 
 export default function MealDetailsPage({params}) {
   const meal = getMeal(params.mealSlug);
+  if(!meal){
+    //closest not found error page if no meal is available in db
+    notFound();
+  }
   meal.instructions = meal.instructions.replace(/\n/g, '<br/>')
   return (
     <>
